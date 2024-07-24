@@ -48,6 +48,7 @@ env:
   WRT_PW: ${{inputs.WRT_PW}}
   WRT_REPO: ${{inputs.WRT_REPO}}
   WRT_BRANCH: ${{inputs.WRT_BRANCH}}
+  WRT_SOURCE: ${{inputs.WRT_SOURCE}}
   WRT_PACKAGE: ${{inputs.WRT_PACKAGE}}
   WRT_TEST: ${{inputs.WRT_TEST}}
 
@@ -97,7 +98,7 @@ jobs:
         run: |
           export WRT_DATE=$(TZ=UTC-8 date +"%y.%m.%d_%H.%M.%S")
           export WRT_CI=$(basename $GITHUB_WORKSPACE)
-          export WRT_VER=$(echo $WRT_REPO | cut -d '/' -f 5-)-$WRT_BRANCH
+          export WRT_VER=$(echo $WRT_SOURCE | cut -d '/' -f 2)-$WRT_BRANCH
           export WRT_TYPE=$(sed -n "1{s/^#//;s/\r$//;p;q}" $GITHUB_WORKSPACE/Config/$WRT_TARGET.txt)
 
           echo "WRT_DATE=$WRT_DATE" >> $GITHUB_ENV
@@ -218,7 +219,7 @@ jobs:
               for FILE in $(find ./bin/targets/ -type f -iname "*$TYPE*.*") ; do
                 EXT=$(basename $FILE | cut -d '.' -f 2-)
                 NAME=$(basename $FILE | cut -d '.' -f 1 | grep -io "\($TYPE\).*")
-                NEW_FILE="$WRT_VER"_"$NAME"_"$WRT_DATE"."$EXT"
+                NEW_FILE="$WRT_TARGET"_"$WRT_VER"_"$NAME"_"$WRT_DATE"."$EXT"
                 mv -f $FILE ./upload/$NEW_FILE
               done
             done
