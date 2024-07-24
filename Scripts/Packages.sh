@@ -31,6 +31,10 @@ UPDATE_PACKAGE "ssr-plus" "fw876/helloworld" "master"
 
 UPDATE_PACKAGE "advancedplus" "VIKINGYFY/luci-app-advancedplus" "main"
 UPDATE_PACKAGE "gecoosac" "lwb1978/openwrt-gecoosac" "main"
+UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"
+UPDATE_PACKAGE "luci-app-unblockneteasemusic" "UnblockNeteaseMusic/luci-app-unblockneteasemusic" "js"
+UPDATE_PACKAGE "luci-app-multi-frpc" "justice2001/luci-app-multi-frpc" "main"
+#UPDATE_PACKAGE "luci-app-wolplus" "animegasan/luci-app-wolplus" "main"
 
 if [[ $WRT_REPO != *"lede"* ]]; then
 	UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
