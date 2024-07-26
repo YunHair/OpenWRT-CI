@@ -29,10 +29,10 @@ UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "$([[ $WRT_REPO == *"lede"* ]
 #UPDATE_PACKAGE "passwall" "xiaorouji/openwrt-passwall" "main"
 #UPDATE_PACKAGE "ssr-plus" "fw876/helloworld" "master"
 
-UPDATE_PACKAGE "advancedplus" "VIKINGYFY/luci-app-advancedplus" "main"
+UPDATE_PACKAGE "advancedplus" "yuhai99/luci-app-advancedplus" "main"
 UPDATE_PACKAGE "gecoosac" "lwb1978/openwrt-gecoosac" "main"
 UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"
-UPDATE_PACKAGE "luci-app-unblockneteasemusic" "yuuhai/luci-app-unblockneteasemusic" "js"
+UPDATE_PACKAGE "luci-app-unblockneteasemusic" "yuhai99/luci-app-unblockneteasemusic" "js"
 #UPDATE_PACKAGE "luci-app-multi-frpc" "justice2001/luci-app-multi-frpc" "main"
 #UPDATE_PACKAGE "luci-app-wolplus" "animegasan/luci-app-wolplus" "main"
 
