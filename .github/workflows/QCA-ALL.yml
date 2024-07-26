@@ -33,7 +33,7 @@ jobs:
         #TARGET: [IPQ60XX-WIFI, IPQ60XX-WIFI-DOCKER]
         TARGET: [IPQ60XX-WIFI-DOCKER]
         #TARGET: [IPQ60XX-WIFI]
-        SOURCE: [yuhai99/immortalwrt]
+        SOURCE: [yunhair/immortalwrt]
 
     #调用公用编译核心WRT-CORE.yml
     uses: ./.github/workflows/WRT-CORE.yml
