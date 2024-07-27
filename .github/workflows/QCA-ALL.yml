@@ -31,9 +31,10 @@ jobs:
       #max-parallel: 3
       matrix:
         #TARGET: [IPQ60XX-WIFI, IPQ60XX-WIFI-DOCKER]
-        TARGET: [IPQ60XX-WIFI-DOCKER]
+        #TARGET: [IPQ60XX-WIFI-DOCKER]
         #TARGET: [IPQ60XX-WIFI]
-        SOURCE: [yunhair/immortalwrt]
+        TARGET: [IPQ60XX-WIFI-DOCKER-B]
+        SOURCE: [yunhair/LiBwrt]
 
     #调用公用编译核心WRT-CORE.yml
     uses: ./.github/workflows/WRT-CORE.yml
