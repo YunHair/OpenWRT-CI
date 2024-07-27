@@ -34,7 +34,7 @@ UPDATE_PACKAGE "gecoosac" "lwb1978/openwrt-gecoosac" "main"
 UPDATE_PACKAGE "luci-app-tailscale" "yunhair/luci-app-tailscale" "main"
 UPDATE_PACKAGE "luci-app-unblockneteasemusic" "yunhair/luci-app-unblockneteasemusic" "js"
 #UPDATE_PACKAGE "luci-app-multi-frpc" "justice2001/luci-app-multi-frpc" "main"
-#UPDATE_PACKAGE "luci-app-wolplus" "animegasan/luci-app-wolplus" "main"
+UPDATE_PACKAGE "luci-app-wolplus" "animegasan/luci-app-wolplus" "main"
 
 if [[ $WRT_REPO != *"lede"* ]]; then
 	UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
