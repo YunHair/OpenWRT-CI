@@ -7,15 +7,15 @@ on:
   workflow_dispatch:
     inputs:
       TARGET:
-        default: 'MEDIATEK'
+        default: 'IPQ60XX-WIFI-DOCKER'
         required: true
         type: choice
-        options: [MEDIATEK, ROCKCHIP, X86, IPQ60XX-WIFI-YES, IPQ60XX-WIFI-NO, IPQ807X-WIFI-YES, IPQ807X-WIFI-NO]
+        options: [MEDIATEK, ROCKCHIP, X86, IPQ60XX-WIFI-DOCKER, IPQ60XX-WIFI,IPQ60XX-NOWIFI, IPQ807X-WIFI-YES, IPQ807X-WIFI-NO]
       SOURCE:
-        default: 'VIKINGYFY/immortalwrt'
+        default: 'YunHair/immortalwrt'
         required: true
         type: choice
-        options: [VIKINGYFY/immortalwrt, immortalwrt/immortalwrt, King-Of-Knights/openwrt-6.x, LiBwrt-op/openwrt-6.x, coolsnowwolf/lede]
+        options: [YunHair/immortalwrt,VIKINGYFY/immortalwrt, immortalwrt/immortalwrt, King-Of-Knights/openwrt-6.x, LiBwrt-op/openwrt-6.x, coolsnowwolf/lede]
       BRANCH:
         default: 'main'
         required: true
