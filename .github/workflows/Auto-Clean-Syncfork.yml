@@ -36,7 +36,7 @@ jobs:
           retain_days: 2
           keep_minimum_runs: 6
 
-  sync:
+  sync_imm:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
