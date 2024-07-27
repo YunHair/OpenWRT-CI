@@ -1,0 +1,64 @@
+name: Auto Clean and Sync Fork
+
+on:
+  # 自动清理：每天早上1点
+  schedule:
+    #- cron: '0 17 * * *'  # UTC时间每天17:00触发
+    - cron: '10 17 */2 * *'  # UTC+8时间的每隔2天的凌晨1:10触发
+
+  # 手动触发
+  workflow_dispatch:
+    inputs:
+      NUMBER:
+        default: '6'
+        required: false
+        type: string
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+permissions:
+  write-all
+
+jobs:
+  auto_clean:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete Old Releases
+        uses: dev-drprasad/delete-older-releases@master
+        with:
+          keep_latest: ${{ inputs.NUMBER || '6' }}
+          delete_tags: true
+
+      - name: Delete Old Workflows
+        uses: Mattraks/delete-workflow-runs@main
+        with:
+          retain_days: 2
+          keep_minimum_runs: 6
+
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          repository: 'YunHair/immortalwrt'
+          token: ${{ secrets.PAT_IMM }}
+          fetch-depth: 0  # Fetch all history so that we have a full clone
+
+      - name: Configure Git
+        run: |
+          git config user.email "yuhai995@126.com"
+          git config user.name "YunHair"
+
+      - name: Add Upstream Remote
+        run: git remote add upstream https://github.com/VIKINGYFY/immortalwrt.git
+
+      - name: Fetch Upstream Changes
+        run: git fetch upstream
+
+      - name: Merge Upstream Changes
+        run: git merge upstream/main  # 想要合并的分支，比如 main 或 master
+
+      - name: Push Changes
+        run: git push origin main  # 同步更改到你的分支，比如 main
