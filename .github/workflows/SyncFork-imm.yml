@@ -1,0 +1,38 @@
+name: Auto Sync Fork
+
+on:
+  schedule:
+    - cron: '10 17 */2 * *'  # UTC+8时间每隔2天的凌晨1点触发
+
+  workflow_dispatch:  # 允许手动触发
+    
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          repository: 'YunHair/immortalwrt'   
+          token: ${{ secrets.PAT }}                     
+          fetch-depth: 0  # Fetch all history so that we have a full clone
+
+      - name: Configure Git
+        run: |
+          git config user.email "yuhai995@126.com"
+          git config user.name "YunHair"
+
+      - name: Add Upstream Remote
+        run: git remote add upstream https://github.com/VIKINGYFY/immortalwrt.git  
+
+      - name: Fetch Upstream Changes
+        run: git fetch upstream
+
+      - name: Merge Upstream Changes
+        run: git merge upstream/main  # 想要合并的分支，比如 main 或 master
+
+      - name: Push Changes
+        run: git push origin main  # 同步更改到你的分支，比如 main
+
+        
