@@ -45,8 +45,8 @@ jobs:
 
       - name: Sync with Upstream for VIKINGYFY immortalwrt
         run: |
-          git config user.email "yuhai995@126.com"
-          git config user.name "YunHair"
+          #git config user.email "yuhai995@126.com"
+          #git config user.name "YunHair"
           git remote add upstream https://github.com/VIKINGYFY/immortalwrt.git
           git fetch upstream
           git merge upstream/main --no-edit
@@ -61,8 +61,8 @@ jobs:
 
       - name: Sync with Upstream for LiBwrt
         run: |
-          git config user.email "yuhai995@126.com"
-          git config user.name "YunHair"
+          # git config user.email "yuhai995@126.com"
+          # git config user.name "YunHair"
           git remote add upstream https://github.com/LiBwrt-op/openwrt-6.x.git
           git fetch upstream
           git merge upstream/main --no-edit
