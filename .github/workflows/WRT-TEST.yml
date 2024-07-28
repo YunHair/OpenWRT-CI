@@ -21,6 +21,7 @@ on:
         required: true
         type: string
       PACKAGE:
+        description: '手动调整插件包，仅限一个。例：CONFIG_PACKAGE_luci-app-ttyd=y'
         required: false
         type: string
       TEST:

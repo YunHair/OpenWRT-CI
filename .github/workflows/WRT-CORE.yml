@@ -233,11 +233,11 @@ jobs:
           tag_name: ${{env.WRT_TARGET}}_${{env.WRT_VER}}_${{env.WRT_DATE}}
           files: ./wrt/upload/*.*
           body: |
-            这是个平台固件包，内含多个设备！
-            请注意选择你需要的设备固件！
-            不要问，刷就完事了！
+            这是X86、MTK、QCA、 ROCKCHIP平台固件包，内含多个设备！
+            
+            MTK和QCA全系带开源硬件加速！
 
-            MTK和QCA全系带开源硬件加速，别问了！
+            请注意选择你需要的设备固件，注意区分 WIFI、DOCKER！                     
 
             源码：${{env.WRT_REPO}}
             分支：${{env.WRT_BRANCH}}
