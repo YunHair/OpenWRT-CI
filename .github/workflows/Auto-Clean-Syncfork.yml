@@ -40,13 +40,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: 'YunHair/immortalwrt'
-          token: ${{ secrets.PAT_IMM }}
+          token: ${{ secrets.PAT_REPO }}
           fetch-depth: 0  # Fetch all history so that we have a full clone
 
       - name: Sync with Upstream for VIKINGYFY immortalwrt
-        run: |
-          #git config user.email "yuhai995@126.com"
-          #git config user.name "YunHair"
+        run: |     
           git remote add upstream https://github.com/VIKINGYFY/immortalwrt.git
           git fetch upstream
           git merge upstream/main --no-edit
@@ -56,13 +54,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: 'YunHair/LiBwrt'
-          token: ${{ secrets.PAT_IMM }}
+          token: ${{ secrets.PAT_REPO }}
           fetch-depth: 0  # Fetch all history so that we have a full clone
 
       - name: Sync with Upstream for LiBwrt
         run: |
-          # git config user.email "yuhai995@126.com"
-          # git config user.name "YunHair"
           git remote add upstream https://github.com/LiBwrt-op/openwrt-6.x.git
           git fetch upstream
           git merge upstream/main --no-edit
