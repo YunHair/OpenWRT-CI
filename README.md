@@ -1,6 +1,6 @@
 # OpenWRT-CI
 
-云编译OpenWRT固件
+云编译OpenWRT固件，immortalwrt源码。
 
 官方版： 
 
@@ -14,6 +14,8 @@ https://github.com/YunHair/immortalwrt.git
 
 
 # 固件简要说明：
+
+包含多个平台：MEDIATEK, ROCKCHIP, X86, IPQ60XX-WIFI-DOCKER, IPQ60XX-WIFI,IPQ60XX-NOWIFI, IPQ807X-WIFI, IPQ807X-NOWIFI。
 
 固件信息里的时间为编译开始的时间，方便核对上游源码提交时间。
 
