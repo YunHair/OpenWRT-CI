@@ -1,4 +1,4 @@
-name: Auto Clean and Sync Fork
+name: Auto Clean
 
 on:
   # 自动清理：UTC+8时区每隔2天的凌晨1:15触发
