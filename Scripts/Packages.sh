@@ -24,6 +24,7 @@ UPDATE_PACKAGE() {
 UPDATE_PACKAGE "argon" "jerrykuku/luci-theme-argon" "$([[ $WRT_REPO == *"lede"* ]] && echo "18.06" || echo "master")"
 UPDATE_PACKAGE "design" "0x676e67/luci-theme-design" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
 UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
+UPDATE_PACKAGE "luci-app-unblockneteasemusic" "UnblockNeteaseMusic/luci-app-unblockneteasemusic" "$([[ $WRT_REPO == *"lede"* ]] && echo "master" || echo "js")"
 
 #UPDATE_PACKAGE "openclash" "vernesong/OpenClash" "dev" "pkg"
 #UPDATE_PACKAGE "passwall" "xiaorouji/openwrt-passwall" "main"
@@ -32,7 +33,7 @@ UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "$([[ $WRT_REPO == *"lede"* ]
 UPDATE_PACKAGE "advancedplus" "yunhair/luci-app-advancedplus" "main"
 UPDATE_PACKAGE "gecoosac" "lwb1978/openwrt-gecoosac" "main"
 UPDATE_PACKAGE "luci-app-tailscale" "yunhair/luci-app-tailscale" "main"
-UPDATE_PACKAGE "luci-app-unblockneteasemusic" "yunhair/luci-app-unblockneteasemusic" "js"
+#UPDATE_PACKAGE "luci-app-unblockneteasemusic" "UnblockNeteaseMusic/luci-app-unblockneteasemusic" "js"
 #UPDATE_PACKAGE "luci-app-multi-frpc" "justice2001/luci-app-multi-frpc" "main"
 UPDATE_PACKAGE "luci-app-wolplus" "animegasan/luci-app-wolplus" "main"
 UPDATE_PACKAGE "luci-app-mosdns" "sbwml/luci-app-mosdns" "v5"
