@@ -32,10 +32,10 @@ jobs:
       matrix:
         #TARGET: [MEDIATEK, ROCKCHIP, X86, IPQ60XX-WIFI-DOCKER, IPQ60XX-WIFI,IPQ60XX-NOWIFI, IPQ807X-WIFI, IPQ807X-NOWIFI]
         #TARGET: [IPQ60XX-WIFI, IPQ60XX-WIFI-DOCKER]
-        TARGET: [IPQ60XX-WIFI-DOCKER]
-        #TARGET: [IPQ60XX-WIFI]
-        #SOURCE: [YunHair/LiBwrt]
-        SOURCE: [YunHair/LEDE]
+        #TARGET: [IPQ60XX-WIFI-DOCKER]
+        TARGET: [IPQ60XX-WIFI]
+        SOURCE: [YunHair/LiBwrt]
+        #SOURCE: [YunHair/LEDE]
         #SOURCE: [YunHair/immortalwrt]
 
     #调用公用编译核心WRT-CORE.yml
