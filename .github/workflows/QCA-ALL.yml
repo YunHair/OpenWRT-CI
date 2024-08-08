@@ -31,9 +31,9 @@ jobs:
       #max-parallel: 3
       matrix:
         #TARGET: [MEDIATEK, ROCKCHIP, X86, IPQ60XX-WIFI-DOCKER, IPQ60XX-WIFI,IPQ60XX-NOWIFI, IPQ807X-WIFI, IPQ807X-NOWIFI]
-        #TARGET: [IPQ60XX-WIFI, IPQ60XX-WIFI-DOCKER]
+        TARGET: [IPQ60XX-WIFI, IPQ60XX-WIFI-DOCKER]
         #TARGET: [IPQ60XX-WIFI-DOCKER]
-        TARGET: [IPQ60XX-WIFI]
+        #TARGET: [IPQ60XX-WIFI]
         SOURCE: [YunHair/LiBwrt]
         #SOURCE: [YunHair/LEDE]
         #SOURCE: [YunHair/immortalwrt]
