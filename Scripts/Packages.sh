@@ -40,8 +40,8 @@ UPDATE_PACKAGE "luci-app-mosdns" "sbwml/luci-app-mosdns" "v5"
 
 
 if [[ $WRT_REPO != *"lede"* ]]; then
-	UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
-        #UPDATE_PACKAGE "homeproxy" "muink/luci-app-homeproxy" "master"
+	#UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
+        UPDATE_PACKAGE "luci-app-homeproxy" "muink/luci-app-homeproxy" "master"
 	UPDATE_PACKAGE "mihomo" "morytyann/OpenWrt-mihomo" "main" "pkg"
 fi
 
