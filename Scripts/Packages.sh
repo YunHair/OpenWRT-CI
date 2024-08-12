@@ -37,6 +37,7 @@ UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"
 UPDATE_PACKAGE "luci-app-multi-frpc" "justice2001/luci-app-multi-frpc" "dev"
 UPDATE_PACKAGE "luci-app-wolplus" "animegasan/luci-app-wolplus" "main"
 UPDATE_PACKAGE "luci-app-mosdns" "sbwml/luci-app-mosdns" "v5"
+UPDATE_PACKAGE "luci-app-onliner" "YunHair/luci-app-onliner" "main"
 
 #科学
 if [[ $WRT_REPO != *"lede"* ]]; then
