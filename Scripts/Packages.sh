@@ -22,9 +22,9 @@ UPDATE_PACKAGE() {
 
 #UPDATE_PACKAGE "包名" "项目地址" "项目分支" "pkg/name，可选，pkg为从大杂烩中单独提取包名插件；name为重命名为包名"
 UPDATE_PACKAGE "argon" "jerrykuku/luci-theme-argon" "$([[ $WRT_REPO == *"lede"* ]] && echo "18.06" || echo "master")"
-#UPDATE_PACKAGE "design" "0x676e67/luci-theme-design" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
-#UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
-#UPDATE_PACKAGE "luci-app-unblockneteasemusic" "YunHair/luci-app-unblockneteasemusic" "$([[ $WRT_REPO == *"lede"* ]] && echo "master" || echo "js")"
+UPDATE_PACKAGE "design" "0x676e67/luci-theme-design" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
+UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
+UPDATE_PACKAGE "luci-app-unblockneteasemusic" "YunHair/luci-app-unblockneteasemusic" "$([[ $WRT_REPO == *"lede"* ]] && echo "master" || echo "js")"
 
 #UPDATE_PACKAGE "openclash" "vernesong/OpenClash" "dev" "pkg"
 #UPDATE_PACKAGE "passwall" "xiaorouji/openwrt-passwall" "main"
@@ -33,7 +33,7 @@ UPDATE_PACKAGE "argon" "jerrykuku/luci-theme-argon" "$([[ $WRT_REPO == *"lede"* 
 UPDATE_PACKAGE "advancedplus" "YunHair/luci-app-advancedplus" "main"
 UPDATE_PACKAGE "gecoosac" "lwb1978/openwrt-gecoosac" "main"
 UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"
-UPDATE_PACKAGE "luci-app-unblockneteasemusic" "YunHair/luci-app-unblockneteasemusic" "js"
+#UPDATE_PACKAGE "luci-app-unblockneteasemusic" "YunHair/luci-app-unblockneteasemusic" "js"
 UPDATE_PACKAGE "luci-app-multi-frpc" "justice2001/luci-app-multi-frpc" "dev"
 UPDATE_PACKAGE "luci-app-wolplus" "animegasan/luci-app-wolplus" "main"
 UPDATE_PACKAGE "luci-app-mosdns" "sbwml/luci-app-mosdns" "v5"
