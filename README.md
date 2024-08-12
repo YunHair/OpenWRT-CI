@@ -19,6 +19,8 @@ https://github.com/LiBwrt-op/openwrt-6.x
 
 https://github.com/King-Of-Knights/openwrt-6.x  
 
+https://github.com/YunHair/LiBwrt
+
 
 # 说明：
 
