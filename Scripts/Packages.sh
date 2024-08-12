@@ -38,11 +38,11 @@ UPDATE_PACKAGE "luci-app-multi-frpc" "justice2001/luci-app-multi-frpc" "dev"
 UPDATE_PACKAGE "luci-app-wolplus" "animegasan/luci-app-wolplus" "main"
 UPDATE_PACKAGE "luci-app-mosdns" "sbwml/luci-app-mosdns" "v5"
 
-
+#科学
 if [[ $WRT_REPO != *"lede"* ]]; then
 	#UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
         UPDATE_PACKAGE "homeproxy" "muink/luci-app-homeproxy" "master"
-	UPDATE_PACKAGE "mihomo" "morytyann/OpenWrt-mihomo" "main" "pkg"
+	#UPDATE_PACKAGE "mihomo" "morytyann/OpenWrt-mihomo" "main" "pkg"
 fi
 
 if [[ $WRT_REPO == *"LiBwrt"* ]]; then
