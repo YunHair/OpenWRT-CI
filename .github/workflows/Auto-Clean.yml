@@ -33,7 +33,7 @@ jobs:
       - name: Delete Old Workflows
         uses: Mattraks/delete-workflow-runs@main
         with:
-          retain_days: 2
-          keep_minimum_runs: 6
+          retain_days: 1
+          keep_minimum_runs: 5
 
      
