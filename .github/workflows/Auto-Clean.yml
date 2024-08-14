@@ -19,8 +19,10 @@ env:
 
 permissions:
   actions: write
-  contents: read
-  workflows: write
+  contents: write
+  issues: write
+  pull-requests: write
+  deployments: write
 
 jobs:
   auto_clean:
