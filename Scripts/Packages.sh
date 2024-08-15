@@ -40,6 +40,7 @@ UPDATE_PACKAGE "luci-app-mosdns" "sbwml/luci-app-mosdns" "v5"
 UPDATE_PACKAGE "luci-app-onliner" "YunHair/luci-app-onliner" "main"
 UPDATE_PACKAGE "natmapt" "muink/openwrt-natmapt" "master"
 UPDATE_PACKAGE "luci-app-natmapt" "muink/luci-app-natmapt" "master"
+#blueberry-pie-11/luci-app-natmap
 
 #科学
 if [[ $WRT_REPO != *"lede"* ]]; then
