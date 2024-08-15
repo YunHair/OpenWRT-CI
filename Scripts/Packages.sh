@@ -38,6 +38,7 @@ UPDATE_PACKAGE "luci-app-multi-frpc" "YunHair/luci-app-multifrpc" "main"
 UPDATE_PACKAGE "luci-app-wolplus" "YunHair/luci-app-wolplus" "main"
 UPDATE_PACKAGE "luci-app-mosdns" "sbwml/luci-app-mosdns" "v5"
 UPDATE_PACKAGE "luci-app-onliner" "YunHair/luci-app-onliner" "main"
+UPDATE_PACKAGE "luci-app-natmapt" "muink/luci-app-natmapt" "master"
 
 #科学
 if [[ $WRT_REPO != *"lede"* ]]; then
