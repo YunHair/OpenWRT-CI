@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 #安装和更新软件包
 UPDATE_PACKAGE() {
 	local PKG_NAME=$1
@@ -39,9 +40,12 @@ UPDATE_PACKAGE "luci-app-wolplus" "YunHair/luci-app-wolplus" "main"
 UPDATE_PACKAGE "luci-app-mosdns" "sbwml/luci-app-mosdns" "v5"
 UPDATE_PACKAGE "luci-app-onliner" "YunHair/luci-app-onliner" "main"
 UPDATE_PACKAGE "natmapt" "muink/openwrt-natmapt" "master"
-UPDATE_PACKAGE "stuntman" "muink/openwrt-stuntman" "master"
-UPDATE_PACKAGE "luci-app-natmapt" "muink/luci-app-natmapt" "master"
-#blueberry-pie-11/luci-app-natmap
+
+#natmap或lucky
+#UPDATE_PACKAGE "stuntman" "muink/openwrt-stuntman" "master"
+#UPDATE_PACKAGE "luci-app-natmapt" "muink/luci-app-natmapt" "master"
+UPDATE_PACKAGE "lucky" "gdy666/luci-app-lucky" "main" "pkg"
+UPDATE_PACKAGE "luci-app-lucky" "gdy666/luci-app-lucky" "main" "pkg"
 
 #科学
 if [[ $WRT_REPO != *"lede"* ]]; then
