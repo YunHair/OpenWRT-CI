@@ -2,26 +2,54 @@
 
 
 #安装和更新软件包
+#UPDATE_PACKAGE() {
+#	local PKG_NAME=$1
+#	local PKG_REPO=$2
+#	local PKG_BRANCH=$3
+#	local PKG_SPECIAL=$4
+#	local REPO_NAME=$(echo $PKG_REPO | cut -d '/' -f 2)
+#
+#	rm -rf $(find ../feeds/luci/ ../feeds/packages/ -maxdepth 3 -type d -iname "*$PKG_NAME*" -prune)
+#
+#	git clone --depth=1 --single-branch --branch $PKG_BRANCH "https://github.com/$PKG_REPO.git"
+#
+#	if [[ $PKG_SPECIAL == "pkg" ]]; then
+#		cp -rf $(find ./$REPO_NAME/*/ -maxdepth 3 -type d -iname "*$PKG_NAME*" -prune) ./
+#		rm -rf ./$REPO_NAME/
+#	elif [[ $PKG_SPECIAL == "name" ]]; then
+#		mv -f $REPO_NAME $PKG_NAME
+#	fi
+#}
+
+#安装和更新软件包
 UPDATE_PACKAGE() {
-	local PKG_NAME=$1
-	local PKG_REPO=$2
-	local PKG_BRANCH=$3
-	local PKG_SPECIAL=$4
-	local REPO_NAME=$(echo $PKG_REPO | cut -d '/' -f 2)
+    local PKG_NAME=$1
+    local PKG_REPO=$2
+    local PKG_BRANCH=$3
+    local PKG_SPECIAL=$4
+    local TARGET_DIR=$5
+    local REPO_NAME=$(echo $PKG_REPO | cut -d '/' -f 2)
 
-	rm -rf $(find ../feeds/luci/ ../feeds/packages/ -maxdepth 3 -type d -iname "*$PKG_NAME*" -prune)
+    # 确保目标目录存在
+    mkdir -p $TARGET_DIR
 
-	git clone --depth=1 --single-branch --branch $PKG_BRANCH "https://github.com/$PKG_REPO.git"
+    # 删除目标目录中的旧包
+    rm -rf $(find $TARGET_DIR -maxdepth 3 -type d -iname "*$PKG_NAME*" -prune)
 
-	if [[ $PKG_SPECIAL == "pkg" ]]; then
-		cp -rf $(find ./$REPO_NAME/*/ -maxdepth 3 -type d -iname "*$PKG_NAME*" -prune) ./
-		rm -rf ./$REPO_NAME/
-	elif [[ $PKG_SPECIAL == "name" ]]; then
-		mv -f $REPO_NAME $PKG_NAME
-	fi
+    # 克隆新的包
+    git clone --depth=1 --single-branch --branch $PKG_BRANCH "https://github.com/$PKG_REPO.git" $TARGET_DIR/$REPO_NAME
+
+    if [[ $PKG_SPECIAL == "pkg" ]]; then
+        cp -rf $(find $TARGET_DIR/$REPO_NAME/*/ -maxdepth 3 -type d -iname "*$PKG_NAME*" -prune) $TARGET_DIR/
+        rm -rf $TARGET_DIR/$REPO_NAME/
+    elif [[ $PKG_SPECIAL == "name" ]]; then
+        mv -f $TARGET_DIR/$REPO_NAME $TARGET_DIR/$PKG_NAME
+    fi
 }
 
-#UPDATE_PACKAGE "包名" "项目地址" "项目分支" "pkg/name，可选，pkg为从大杂烩中单独提取包名插件；name为重命名为包名"
+
+
+#UPDATE_PACKAGE "包名" "项目地址" "项目分支" "pkg/name，可选，pkg为从大杂烩中单独提取包名插件；name为重命名为包名" "重命名处理后的目录："
 UPDATE_PACKAGE "argon" "jerrykuku/luci-theme-argon" "$([[ $WRT_REPO == *"lede"* ]] && echo "18.06" || echo "master")"
 UPDATE_PACKAGE "design" "0x676e67/luci-theme-design" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
 UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
@@ -44,8 +72,9 @@ UPDATE_PACKAGE "natmapt" "muink/openwrt-natmapt" "master"
 #natmap或lucky
 #UPDATE_PACKAGE "stuntman" "muink/openwrt-stuntman" "master"
 #UPDATE_PACKAGE "luci-app-natmapt" "muink/luci-app-natmapt" "master"
-UPDATE_PACKAGE "lucky" "gdy666/luci-app-lucky" "main" "pkg"
-UPDATE_PACKAGE "luci-app-lucky" "gdy666/luci-app-lucky" "main" "pkg"
+UPDATE_PACKAGE "lucky" "gdy666/luci-app-lucky" "main" "pkg" "dir_lucky"
+UPDATE_PACKAGE "luci-app-lucky" "gdy666/luci-app-lucky" "main" "pkg" "dir_luci_app_lucky"
+
 
 #科学
 if [[ $WRT_REPO != *"lede"* ]]; then
