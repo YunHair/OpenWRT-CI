@@ -80,7 +80,7 @@ UPDATE_PACKAGE "lucky" "gdy666/luci-app-lucky" "main"
 if [[ $WRT_REPO != *"lede"* ]]; then
 	#UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
         UPDATE_PACKAGE "homeproxy" "muink/luci-app-homeproxy" "master"
-	#UPDATE_PACKAGE "mihomo" "morytyann/OpenWrt-mihomo" "main" "pkg"
+	UPDATE_PACKAGE "mihomo" "morytyann/OpenWrt-mihomo" "main" "pkg"
 fi
 
 if [[ $WRT_REPO == *"LiBwrt"* ]]; then
