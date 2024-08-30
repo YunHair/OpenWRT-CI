@@ -1,4 +1,4 @@
-#JDCLOUD_ax1800-pro
+#JDC1800
 CONFIG_TARGET_qualcommax=y
 CONFIG_TARGET_qualcommax_ipq60xx=y
 #设备列表
