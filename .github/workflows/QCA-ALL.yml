@@ -35,9 +35,9 @@ jobs:
         #TARGET: [IPQ60XX-WIFI-DOCKER]
         #TARGET: [IPQ60XX-WIFI]
         TARGET: [IPQ60XX-JDC1800-WIFI-DOCKER, IPQ60XX-ZNM2-WIFI]
-        SOURCE: [YunHair/LiBwrt]
+        SOURCE: [YunHair/immortalwrt]
+        #SOURCE: [YunHair/LiBwrt]
         #SOURCE: [YunHair/LEDE]
-        #SOURCE: [YunHair/immortalwrt]
         #BRANCH: [main]
 
     #调用公用编译核心WRT-CORE.yml
