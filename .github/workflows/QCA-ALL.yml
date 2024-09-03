@@ -35,8 +35,8 @@ jobs:
         #TARGET: [IPQ60XX-WIFI-DOCKER]
         #TARGET: [IPQ60XX-WIFI]
         #TARGET: [IPQ60XX-JDC1800-WIFI-DOCKER, IPQ60XX-ZNM2-WIFI]
-        SOURCE: [YunHair/immortalwrt]
-        #SOURCE: [YunHair/LiBwrt]
+        #SOURCE: [YunHair/immortalwrt]
+        SOURCE: [YunHair/LiBwrt]
         #SOURCE: [YunHair/LEDE]
         #BRANCH: [main]
 
