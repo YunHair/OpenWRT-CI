@@ -47,6 +47,8 @@ UPDATE_PACKAGE "lucky" "gdy666/luci-app-lucky" "main"
 
 #科学
 UPDATE_PACKAGE "homeproxy" "muink/luci-app-homeproxy" "master"
+#UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
+
 #UPDATE_PACKAGE "mihomo" "morytyann/OpenWrt-mihomo" "main" "pkg"
 
 #LiBwrt编译时需要
