@@ -79,9 +79,9 @@ UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 
 UPDATE_PACKAGE "luci-app-advancedplus" "sirpdboy/luci-app-advancedplus" "main"
 
-UPDATE_PACKAGE "appfilter" "destan19/OpenAppFilter" "master" "pkg"
-UPDATE_PACKAGE "oaf" "destan19/OpenAppFilter" "master" "pkg"
-UPDATE_PACKAGE "luci-app-oaf" "destan19/OpenAppFilter" "master" "pkg"
+#UPDATE_PACKAGE "appfilter" "destan19/OpenAppFilter" "master" "pkg"
+#UPDATE_PACKAGE "oaf" "destan19/OpenAppFilter" "master" "pkg"
+#UPDATE_PACKAGE "OpenAppFilter" "destan19/OpenAppFilter" "master" "pkg"
 UPDATE_PACKAGE "luci-app-timecontrol" "sirpdboy/luci-app-timecontrol" "master" "pkg"
 
 UPDATE_PACKAGE "zapret" "remittor/zapret-openwrt" "zap1" "pkg"
