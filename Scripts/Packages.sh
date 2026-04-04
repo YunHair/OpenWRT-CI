@@ -81,8 +81,8 @@ UPDATE_PACKAGE "luci-app-advancedplus" "sirpdboy/luci-app-advancedplus" "main"
 UPDATE_PACKAGE "OpenAppFilter" "destan19/OpenAppFilter" "master" 
 UPDATE_PACKAGE "luci-app-timecontrol" "sirpdboy/luci-app-timecontrol" "master"
 UPDATE_PACKAGE "lucky" "gdy666/luci-app-lucky" "main" 
-UPDATE_PACKAGE "zapret" "remittor/zapret-openwrt" "zap1" "pkg"
-UPDATE_PACKAGE "luci-app-zapret" "remittor/zapret-openwrt" "zap1" "pkg"
+#UPDATE_PACKAGE "zapret" "remittor/zapret-openwrt" "zap1" "pkg"
+UPDATE_PACKAGE "luci-app-zapret" "remittor/zapret-openwrt" "zap1" 
 
 
 #更新软件包版本
