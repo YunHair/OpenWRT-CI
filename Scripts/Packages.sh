@@ -81,6 +81,10 @@ UPDATE_PACKAGE "timecontrol" "sirpdboy/luci-app-timecontrol" "main"
 UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "axonhub gecoosac sing-box luci-app-homeproxy luci-app-timewol luci-app-wolplus luci-app-wolultra"
 UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 
+UPDATE_PACKAGE "yunhair-package" "YunHair/openwrt-package" "main" "" "usteer-ng luci-app-advancedplus luci-app-usteer"
+UPDATE_PACKAGE "kenzok8" "kenzok8/small-package" "main" "" "lucky luci-app-lucky oaf open-app-filter luci-app-oaf "
+UPDATE_PACKAGE "luci-app-tailscale-community" "Tokisaki-Galaxy/luci-app-tailscale-community" "master" "" "luci-app-tailscale-community"
+
 #更新软件包版本
 UPDATE_VERSION() {
 	local PKG_NAME=$1
