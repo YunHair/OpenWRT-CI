@@ -78,10 +78,13 @@ UPDATE_PACKAGE "qbittorrent" "sbwml/luci-app-qbittorrent" "master" "" "qt6base q
 UPDATE_PACKAGE "qmodem" "FUjr/QModem" "main"
 UPDATE_PACKAGE "quickfile" "sbwml/luci-app-quickfile" "main"
 UPDATE_PACKAGE "timecontrol" "sirpdboy/luci-app-timecontrol" "main"
-UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "axonhub gecoosac sing-box luci-app-homeproxy luci-app-timewol luci-app-wolplus luci-app-wolultra"
+#UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "axonhub gecoosac sing-box luci-app-homeproxy luci-app-timewol luci-app-wolplus luci-app-wolultra"
+UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "axonhub   luci-app-timewol luci-app-wolplus luci-app-wolultra"
+
+
 UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 
-UPDATE_PACKAGE "yunhair-package" "YunHair/openwrt-package" "main" "" "luci-app-advancedplus luci-app-lucky oaf open-app-filter luci-app-oaf wrtbwmon luci-app-wrtbwmon"
+UPDATE_PACKAGE "yunhair-package" "YunHair/openwrt-package" "main" "" "luci-app-advancedplus luci-app-lucky gecoosac luci-app-gecoosac oaf open-app-filter luci-app-oaf wrtbwmon luci-app-wrtbwmon"
 #UPDATE_PACKAGE "kenzok8" "kenzok8/small-package" "main" "" "oaf open-app-filter luci-app-oaf "
 #UPDATE_PACKAGE "tailscale-community" "Tokisaki-Galaxy/luci-app-tailscale-community" "master" "" "luci-app-tailscale-community"
 
