@@ -65,7 +65,7 @@ UPDATE_PACKAGE "passwall2" "Openwrt-Passwall/openwrt-passwall2" "main" "pkg"
 UPDATE_PACKAGE "diskmanager" "4IceG/luci-app-mini-diskmanager" "main"
 UPDATE_PACKAGE "easytier" "EasyTier/luci-app-easytier" "main"
 UPDATE_PACKAGE "qmodem" "FUjr/QModem" "main"
-UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "axonhub gecoosac sing-box luci-app-homeproxy luci-app-timewol luci-app-wolplus luci-app-wolultra"
+UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "axonhub "
 UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 
 UPDATE_PACKAGE "diskman" "sbwml/luci-app-diskman" "main"
@@ -87,6 +87,9 @@ UPDATE_PACKAGE "luci-app-natmapt" "muink/luci-app-natmapt" "master"
 UPDATE_PACKAGE "airpi3000m" "LianXia233/luci-app-airpi3000m-fancontrol" "main"
 UPDATE_PACKAGE "h5000m" "LianXia233/luci-app-h5000m-netmode" "main"
 UPDATE_PACKAGE "qmodem-generic" "LianXia233/luci-app-qmodem-generic" "main"
+UPDATE_PACKAGE "yunhair-package" "YunHair/openwrt-package" "main" "" "luci-app-advancedplus luci-app-lucky gecoosac luci-app-gecoosac oaf open-app-filter luci-app-oaf wrtbwmon luci-app-wrtbwmon  luci-app-wolultra"
+
+
 
 #更新软件包版本
 UPDATE_VERSION() {
