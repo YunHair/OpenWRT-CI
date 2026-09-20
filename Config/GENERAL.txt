@@ -138,7 +138,7 @@ CONFIG_PACKAGE_luci-app-wechatpush=y
 CONFIG_PACKAGE_luci-app-zerotier=y
 CONFIG_PACKAGE_luci-app-tailscale=y
 CONFIG_PACKAGE_luci-theme-argon=y
-CONFIG_PACKAGE_luci-app-wrtbwmon=y
+#CONFIG_PACKAGE_luci-app-wrtbwmon=y
 #CONFIG_PACKAGE_luci-app-unblockneteasemusic=y
 CONFIG_PACKAGE_jq=y
 CONFIG_PACKAGE_yq=y
@@ -152,9 +152,8 @@ CONFIG_TARGET_ROOTFS_PARTSIZE=2048
 CONFIG_TARGET_ROOTFS_EXT4FS=n
 
 #报错修复
-CONFIG_PACKAGE_odhcpd=y
-CONFIG_PACKAGE_odhcpd-ipv6only=n
-CONFIG_PACKAGE_kmod-iptables=n
+#CONFIG_PACKAGE_odhcpd=y
+#CONFIG_PACKAGE_odhcpd-ipv6only=n
 
 
 
