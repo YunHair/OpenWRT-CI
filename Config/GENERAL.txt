@@ -37,7 +37,7 @@ CONFIG_TARGET_ROOTFS_EXT4FS=n
 #CONFIG_PACKAGE_fullconenat-sonic=n
 #CONFIG_PACKAGE_luci-app-fullconenat-sonic=n
 #CONFIG_PACKAGE_kmod-nft-fullcone=y
-
+CONFIG_PACKAGE_kmod-iptables=n
 
 
 
