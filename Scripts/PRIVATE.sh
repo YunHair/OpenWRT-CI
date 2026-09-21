@@ -8,45 +8,41 @@ if [ ! -d "$WRT_DIR" ]; then
     WRT_DIR="$(pwd)"
 fi
 
-if ! cd "$WRT_DIR"; then
-    echo "PRIVATE: 未找到 wrt 目录，跳过 kmod-iptables 处理"
+cd "$WRT_DIR" || {
+    echo "PRIVATE: 未找到 wrt 目录，跳过"
     return 0 2>/dev/null || exit 0
-fi
+}
 
 echo "==> PRIVATE: 处理 kmod-iptables / kmod-nf-ipt 文件冲突"
 
-# 1. 删除 feed 中可能独立存在的 kmod-iptables 包目录
-find ./package ./feeds -maxdepth 7 -type d -iname 'kmod-iptables' -print 2>/dev/null | while IFS= read -r dir; do
-    echo "删除目录: $dir"
-    rm -rf "$dir"
-done
-
-# 2. 从 KernelPackage/iptables 的 FILES 中移除重复提供的 ip_tables.ko 和 x_tables.ko
-#    这样 kmod-iptables 不再提供这两个文件，交给 kmod-nf-ipt 提供，避免文件冲突
-find ./package/kernel ./feeds -type f \( -name '*.mk' -o -name 'Makefile' \) -print0 2>/dev/null | while IFS= read -r -d '' file; do
-    if ! grep -q 'define KernelPackage/iptables' "$file" 2>/dev/null; then
-        continue
-    fi
-
-    echo "处理文件: $file"
-    cp -f "$file" "${file}.private.bak" 2>/dev/null || true
-
-    awk '
-        BEGIN { in_iptables = 0 }
-        /^define[[:space:]]+KernelPackage\/iptables([[:space:]]|$)/ { in_iptables = 1 }
-        in_iptables && /^endef/ { in_iptables = 0 }
-        in_iptables && /ip_tables\.ko|x_tables\.ko/ { next }
-        { print }
-    ' "${file}.private.bak" > "$file"
-
-    # 修复删除 FILES 最后一行后可能残留的续行反斜杠
-    perl -0pi -e 's/\\\n(\s*endef)/\n$1/g' "$file" 2>/dev/null || true
-done
-
-# 3. 如果此时已经有 .config，再强制关掉 kmod-iptables
-if [ -f .config ]; then
-    sed -i '/CONFIG_PACKAGE_kmod-iptables=/d' .config
-    echo '# CONFIG_PACKAGE_kmod-iptables is not set' >> .config
+NETFILTER_MK="package/kernel/linux/modules/netfilter.mk"
+if [ ! -f "$NETFILTER_MK" ]; then
+    echo "未找到 $NETFILTER_MK，跳过"
+    return 0 2>/dev/null || exit 0
 fi
 
-echo "==> PRIVATE: kmod-iptables 冲突处理完成"
+# 备份原文件
+cp -f "$NETFILTER_MK" "${NETFILTER_MK}.private.bak"
+
+# 清空 KernelPackage/iptables 中的 FILES 变量，避免打包 ip_tables.ko 和 x_tables.ko
+awk '
+    BEGIN { in_iptables = 0; skip_files = 0 }
+    /^define[[:space:]]+KernelPackage\/iptables([[:space:]]|$)/ { in_iptables = 1 }
+    in_iptables && /^endef/ { in_iptables = 0; skip_files = 0 }
+    in_iptables && /^[[:space:]]*FILES[[:space:]]*:?=/ {
+        print "  FILES:="
+        skip_files = 1
+        next
+    }
+    in_iptables && skip_files {
+        if ($0 ~ /\\[[:space:]]*$/) {
+            next
+        } else {
+            skip_files = 0
+            next
+        }
+    }
+    { print }
+' "${NETFILTER_MK}.private.bak" > "$NETFILTER_MK"
+
+echo "==> PRIVATE: 已清空 kmod-iptables 的 FILES，冲突处理完成"
