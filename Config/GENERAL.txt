@@ -1,184 +1,178 @@
-# 亚瑟 RE-CS-01 / IPQ6000 无WiFi主路由
 
-#自定义增加插件
-CONFIG_PACKAGE_luci-app-diskman=n #【改】diskman显式禁用（原注释写法不生效）
-CONFIG_PACKAGE_luci-app-mosdns=n
-CONFIG_PACKAGE_luci-app-rtp2httpd=n
-CONFIG_PACKAGE_luci-app-unblockneteasemusic=n
-CONFIG_PACKAGE_luci-app-oaf=y
-CONFIG_PACKAGE_luci-app-dockerman=y
-CONFIG_PACKAGE_luci-app-advancedplus=y
-CONFIG_PACKAGE_luci-app-lucky=y
-CONFIG_PACKAGE_luci-app-quickfile=y
-CONFIG_PACKAGE_luci-app-ramfree=y
-CONFIG_PACKAGE_luci-app-ttyd=y
-CONFIG_PACKAGE_luci-app-vlmcsd=y
-CONFIG_PACKAGE_luci-app-pushbot=y
-CONFIG_PACKAGE_luci-app-wechatpush=y
-CONFIG_PACKAGE_luci-app-wrtbwmon=y
-CONFIG_PACKAGE_luci-app-easytier=y #保留easytier异地组网
-CONFIG_PACKAGE_luci-app-zerotier=y #保留zerotier异地组网
-CONFIG_PACKAGE_luci-app-tailscale=y #保留tailscale异地组网
-CONFIG_PACKAGE_luci-theme-argon=y
-CONFIG_PACKAGE_jq=y
-CONFIG_PACKAGE_yq=y
-CONFIG_PACKAGE_lftp=y
-CONFIG_USE_APK=n
+# 设备：亚瑟 RE-CS-01 / IPQ6000 无WiFi主路由 OpenWrt .config 编译配置
 
-#包大小调整
-CONFIG_TARGET_KERNEL_PARTSIZE=512 #PER_DEVICE下请核对设备级符号
-CONFIG_TARGET_ROOTFS_PARTSIZE=2048 #同上
-CONFIG_TARGET_ROOTFS_EXT4FS=n
+CONFIG_PACKAGE_luci-app-diskman=n        # 【改】diskman磁盘管理插件，显式禁用（原注释写法不生效）
+CONFIG_PACKAGE_luci-app-mosdns=n         # mosdns DNS解析插件，禁用
+CONFIG_PACKAGE_luci-app-rtp2httpd=n      # rtp2httpd流媒体转发插件，禁用
+CONFIG_PACKAGE_luci-app-unblockneteasemusic=n  # 网易云音乐解锁插件，禁用
+CONFIG_PACKAGE_luci-app-oaf=y            # oaf应用过滤插件，启用
+CONFIG_PACKAGE_luci-app-dockerman=y      # Dockerman docker管理LuCI面板，启用
+CONFIG_PACKAGE_luci-app-advancedplus=y   # advancedplus高级设置增强插件，启用
+CONFIG_PACKAGE_luci-app-lucky=y          # lucky网络工具插件，启用
+CONFIG_PACKAGE_luci-app-quickfile=y     # quickfile快速文件管理插件，启用
+CONFIG_PACKAGE_luci-app-ramfree=y        # ramfree内存释放插件，启用
+CONFIG_PACKAGE_luci-app-ttyd=y           # ttyd网页终端插件，启用
+CONFIG_PACKAGE_luci-app-vlmcsd=y         # vlmcsd KMS激活服务插件，启用
+#CONFIG_PACKAGE_luci-app-pushbot=y       # pushbot推送通知插件，注释不编译
+CONFIG_PACKAGE_luci-app-wechatpush=y     # wechatpush微信推送插件，启用
+CONFIG_PACKAGE_luci-app-wrtbwmon=y       # wrtbwmon带宽流量监控插件，启用
+CONFIG_PACKAGE_luci-app-easytier=y       # 保留easytier异地组网插件，启用
+CONFIG_PACKAGE_luci-app-zerotier=y       # 保留zerotier异地组网插件，启用
+CONFIG_PACKAGE_luci-app-tailscale=y      # 保留tailscale异地组网插件，启用
+CONFIG_PACKAGE_luci-theme-argon=y        # Argon LuCI网页主题，启用
+CONFIG_PACKAGE_jq=y                      # jq json命令行解析工具，启用
+CONFIG_PACKAGE_yq=y                      # yq yaml命令行解析工具，启用
+CONFIG_PACKAGE_lftp=y                    # lftp ftp/sftp客户端工具，启用
+CONFIG_USE_APK=n                         # APK包管理器，禁用，使用opkg
 
-#去除kmod-iptables依赖 / fullcone
-CONFIG_PACKAGE_fullconenat-sonic=n
-CONFIG_PACKAGE_luci-app-fullconenat-sonic=n
-CONFIG_PACKAGE_kmod-nft-fullcone=y #【改】nftables版fullcone（原固件含；不需要可删）
+# 包分区大小调整
+CONFIG_TARGET_KERNEL_PARTSIZE=512        # 内核分区大小512MB，PER_DEVICE编译模式请核对设备符号
+CONFIG_TARGET_ROOTFS_PARTSIZE=2048       # 根文件系统分区大小2048MB，同上
+CONFIG_TARGET_ROOTFS_EXT4FS=n            # 不构建ext4根文件系统镜像，禁用
 
-#科学插件
-CONFIG_PACKAGE_luci-app-homeproxy=y
+# 去除fullcone旧依赖，启用nftables版本fullcone
+CONFIG_PACKAGE_fullconenat-sonic=n       # fullconenat-sonic旧版fullcone插件，禁用
+CONFIG_PACKAGE_luci-app-fullconenat-sonic=n  # fullconenat-sonic对应luci面板，禁用
+CONFIG_PACKAGE_kmod-nft-fullcone=y       # 【改】nftables版fullcone内核模块（原固件自带；不需要可删）
 
-#增加插件
-CONFIG_PACKAGE_luci-app-autoreboot=y
-CONFIG_PACKAGE_luci-app-gecoosac=y
-CONFIG_PACKAGE_luci-app-mini-diskmanager=y
-CONFIG_PACKAGE_luci-app-natmapt=n
-CONFIG_PACKAGE_stuntman-client=n
-CONFIG_PACKAGE_luci-app-partexp=n
-CONFIG_PACKAGE_luci-app-samba4=n
-CONFIG_PACKAGE_luci-app-upnp=y
-CONFIG_PACKAGE_luci-app-wolultra=y
+# 科学代理插件
+CONFIG_PACKAGE_luci-app-homeproxy=y      # homeproxy代理LuCI插件，启用
 
-#删除插件
-CONFIG_PACKAGE_luci-app-attendedsysupgrade=n
-CONFIG_PACKAGE_luci-app-wol=n
+# 新增自定义插件
+CONFIG_PACKAGE_luci-app-autoreboot=y     # autoreboot定时重启插件，启用
+CONFIG_PACKAGE_luci-app-gecoosac=y       # gecoosac网络工具插件，启用
+CONFIG_PACKAGE_luci-app-mini-diskmanager=y # mini简易磁盘管理器插件，启用
+CONFIG_PACKAGE_luci-app-natmapt=n        # natmapt端口映射插件，禁用
+CONFIG_PACKAGE_stuntman-client=n         # stuntman客户端，禁用
+CONFIG_PACKAGE_luci-app-partexp=n        # partexp分区扩展插件，禁用
+CONFIG_PACKAGE_luci-app-samba4=n         # samba4网络共享插件，禁用
+CONFIG_PACKAGE_luci-app-upnp=y           # upnp端口自动转发插件，启用
+CONFIG_PACKAGE_luci-app-wolultra=y       # wolultra高级网络唤醒插件，启用
 
-#参数调整
-CONFIG_CCACHE=y
-CONFIG_DEVEL=y
-CONFIG_FEED_video=n
-CONFIG_TARGET_MULTI_PROFILE=y
-CONFIG_TARGET_PER_DEVICE_ROOTFS=y
-CONFIG_TARGET_ROOTFS_INITRAMFS=n #需要救砖initramfs镜像可临时改y
+# 删除不需要的插件
+CONFIG_PACKAGE_luci-app-attendedsysupgrade=n # 在线升级asu插件，禁用
+CONFIG_PACKAGE_luci-app-wol=n            # 基础wol网络唤醒插件，禁用
 
-#内核调整
-CONFIG_PACKAGE_kmod-ata-ahci=y
-CONFIG_PACKAGE_kmod-ata-core=y
-CONFIG_PACKAGE_kmod-bonding=y
-CONFIG_PACKAGE_kmod-dsa=y
-CONFIG_PACKAGE_kmod-dummy=y
-CONFIG_PACKAGE_kmod-fs-btrfs=y
-CONFIG_PACKAGE_kmod-fs-ksmbd=y
-CONFIG_PACKAGE_kmod-fuse=y
-CONFIG_PACKAGE_kmod-inet-diag=y
-CONFIG_PACKAGE_kmod-inet-mptcp-diag=y
-CONFIG_PACKAGE_kmod-mtd-rw=y
-CONFIG_PACKAGE_kmod-netlink-diag=y
-CONFIG_PACKAGE_kmod-nf-nat=y
-CONFIG_PACKAGE_kmod-nf-nat6=y
-CONFIG_PACKAGE_kmod-nft-arp=y
-CONFIG_PACKAGE_kmod-nft-bridge=y
-CONFIG_PACKAGE_kmod-nft-connlimit=y
-CONFIG_PACKAGE_kmod-nft-core=y
-CONFIG_PACKAGE_kmod-nft-dup-inet=y
-CONFIG_PACKAGE_kmod-nft-fib=y
-CONFIG_PACKAGE_kmod-nft-nat=y
-CONFIG_PACKAGE_kmod-nft-netdev=y
-CONFIG_PACKAGE_kmod-nft-offload=y
-CONFIG_PACKAGE_kmod-nft-queue=y
-CONFIG_PACKAGE_kmod-nft-socket=y
-CONFIG_PACKAGE_kmod-nft-tproxy=y
-CONFIG_PACKAGE_kmod-nft-xfrm=y
-CONFIG_PACKAGE_kmod-nvme=n #【改】不接NVMe硬盘
-CONFIG_PACKAGE_kmod-ovpn-backports=y #无OpenVPN需求可改n
-CONFIG_PACKAGE_kmod-sound-core=n
-CONFIG_PACKAGE_kmod-tun=y
-CONFIG_PACKAGE_kmod-usb3=y
-CONFIG_PACKAGE_kmod-usb-audio=n
-CONFIG_PACKAGE_kmod-usb-core=y
-CONFIG_PACKAGE_kmod-usb-dwc3=y
-CONFIG_PACKAGE_kmod-usb-ehci=n #IPQ6000无EHCI
-CONFIG_PACKAGE_kmod-usb-net=y
-CONFIG_PACKAGE_kmod-usb-net-asix=n
-CONFIG_PACKAGE_kmod-usb-net-asix-ax88179=n
-CONFIG_PACKAGE_kmod-usb-net-cdc-eem=n
-CONFIG_PACKAGE_kmod-usb-net-cdc-ether=n
-CONFIG_PACKAGE_kmod-usb-net-cdc-mbim=n
-CONFIG_PACKAGE_kmod-usb-net-cdc-ncm=n
-CONFIG_PACKAGE_kmod-usb-net-cdc-subset=n
-CONFIG_PACKAGE_kmod-usb-net-huawei-cdc-ncm=n
-CONFIG_PACKAGE_kmod-usb-net-ipheth=n #苹果USB网络，不用苹果手机
-CONFIG_PACKAGE_kmod-usb-net-rndis=y #手机USB共享网络
-CONFIG_PACKAGE_kmod-usb-net-rtl8150=n
-CONFIG_PACKAGE_kmod-usb-net-rtl8152=y #2.5G USB网卡
-CONFIG_PACKAGE_kmod-usb-net-sierrawireless=n
-CONFIG_PACKAGE_kmod-usb-ohci=n #IPQ6000无OHCI
-CONFIG_PACKAGE_kmod-usb-storage=y
-CONFIG_PACKAGE_kmod-usb-storage-extras=y
-CONFIG_PACKAGE_kmod-usb-storage-uas=y
-CONFIG_PACKAGE_kmod-usb-uhci=n #IPQ6000无UHCI
-CONFIG_PACKAGE_kmod-veth=y
-CONFIG_PACKAGE_kmod-wireguard=y
+# 编译全局参数调整
+CONFIG_CCACHE=y                          # 启用ccache编译缓存，加速二次编译
+CONFIG_DEVEL=y                           # 启用devel开发编译选项
+CONFIG_FEED_video=n                      # 不加载video软件源，禁用
+CONFIG_TARGET_MULTI_PROFILE=y            # 启用多profile目标编译，启用
+CONFIG_TARGET_PER_DEVICE_ROOTFS=y         # 每个设备独立rootfs镜像，启用
+CONFIG_TARGET_ROOTFS_INITRAMFS=n         # 不编译initramfs救砖镜像；救砖时临时改为y
 
-#组件调整
-CONFIG_PACKAGE_autocore=y
-CONFIG_PACKAGE_automount=y
-CONFIG_PACKAGE_blkid=y
-CONFIG_PACKAGE_cfdisk=n
-CONFIG_PACKAGE_cgdisk=n
-CONFIG_PACKAGE_coremark=n #不内置coremark
-CONFIG_PACKAGE_cpufreq=y
-CONFIG_PACKAGE_curl=y
-CONFIG_PACKAGE_dmesg=y
-CONFIG_PACKAGE_exfat-fsck=y
-CONFIG_PACKAGE_exfat-mkfs=y
-CONFIG_PACKAGE_fdisk=y
-CONFIG_PACKAGE_gdisk=n
-CONFIG_PACKAGE_htop=y
-CONFIG_PACKAGE_iperf3=y
-CONFIG_PACKAGE_ip-full=y
-CONFIG_PACKAGE_libimobiledevice=n #苹果USB相关，不用苹果手机
-CONFIG_PACKAGE_libnvme=n #【改】不接NVMe硬盘
-CONFIG_PACKAGE_lsblk=y
-CONFIG_PACKAGE_luci-base=y
-CONFIG_PACKAGE_luci-compat=y
-CONFIG_PACKAGE_luci-lib-base=y
-CONFIG_PACKAGE_luci-lib-ipkg=y
-CONFIG_PACKAGE_luci-lua-runtime=y
-CONFIG_PACKAGE_luci-proto-relay=y
-CONFIG_PACKAGE_mmc-utils=y #EMMC工具
-CONFIG_PACKAGE_nand-utils=n
-CONFIG_PACKAGE_nvme-cli=n #【改】不接NVMe硬盘
-CONFIG_PACKAGE_openssh-keygen=y
-CONFIG_PACKAGE_openssh-sftp-server=y
-CONFIG_PACKAGE_openssl-util=y
-CONFIG_PACKAGE_proto-bonding=y
-CONFIG_PACKAGE_sfdisk=n
-CONFIG_PACKAGE_sgdisk=n
-CONFIG_PACKAGE_smartmontools=y
-CONFIG_PACKAGE_smartmontools-drivedb=y
-CONFIG_PACKAGE_usb-modeswitch=y
-CONFIG_PACKAGE_usbmuxd=n #苹果USB配套，不用苹果手机
-CONFIG_PACKAGE_usbutils=y
-CONFIG_PACKAGE_xz-utils=y
+# 内核模块配置
+CONFIG_PACKAGE_kmod-ata-ahci=y            # ata ahci磁盘控制器内核模块，启用
+CONFIG_PACKAGE_kmod-ata-core=y            # ata磁盘核心内核模块，启用
+CONFIG_PACKAGE_kmod-bonding=y            # 网卡bond链路聚合内核模块，启用
+CONFIG_PACKAGE_kmod-dsa=y                 # DSA交换机子系统内核模块，启用
+CONFIG_PACKAGE_kmod-dummy=y               # dummy虚拟网卡内核模块，启用
+CONFIG_PACKAGE_kmod-fs-btrfs=y            # btrfs文件系统内核模块，启用
+CONFIG_PACKAGE_kmod-fs-ksmbd=y            # ksmbd现代samba内核文件服务模块，启用
+CONFIG_PACKAGE_kmod-fuse=y                # fuse用户态文件系统内核模块，启用
+CONFIG_PACKAGE_kmod-inet-diag=y           # inet网络诊断内核模块，启用
+CONFIG_PACKAGE_kmod-inet-mptcp-diag=y     # mptcp多路径tcp诊断内核模块，启用
+CONFIG_PACKAGE_kmod-mtd-rw=y              # mtd分区可写内核模块，启用
+CONFIG_PACKAGE_kmod-netlink-diag=y        # netlink网络诊断内核模块，启用
+CONFIG_PACKAGE_kmod-nf-nat=y             # netfilter nat内核模块，启用
+CONFIG_PACKAGE_kmod-nf-nat6=y            # netfilter ipv6 nat内核模块，启用
+CONFIG_PACKAGE_kmod-nft-arp=y            # nftables arp过滤模块，启用
+CONFIG_PACKAGE_kmod-nft-bridge=y          # nftables桥接过滤模块，启用
+CONFIG_PACKAGE_kmod-nft-connlimit=y       # nftables连接数限制模块，启用
+CONFIG_PACKAGE_kmod-nft-core=y            # nftables核心内核模块，启用
+CONFIG_PACKAGE_kmod-nft-dup-inet=y        # nftables inet报文复制模块，启用
+CONFIG_PACKAGE_kmod-nft-fib=y             # nftables fib路由查询模块，启用
+CONFIG_PACKAGE_kmod-nft-nat=y             # nftables nat转换模块，启用
+CONFIG_PACKAGE_kmod-nft-netdev=y          # nftables netdev设备钩子模块，启用
+CONFIG_PACKAGE_kmod-nft-offload=y         # nftables硬件卸载模块，启用
+CONFIG_PACKAGE_kmod-nft-queue=y           # nftables报文队列模块，启用
+CONFIG_PACKAGE_kmod-nft-socket=y          # nftables socket钩子模块，启用
+CONFIG_PACKAGE_kmod-nft-tproxy=y          # nftables透明代理tproxy模块，启用
+CONFIG_PACKAGE_kmod-nft-xfrm=y            # nftables xfrm加密隧道模块，启用
+CONFIG_PACKAGE_kmod-nvme=n                # 【改】nvme硬盘内核模块，不接NVMe硬盘，禁用
+CONFIG_PACKAGE_kmod-ovpn-backports=n      # openvpn回移植内核模块；无OpenVPN需求可改n，禁用
+CONFIG_PACKAGE_kmod-sound-core=n          # 声卡核心模块，无音频设备禁用
+CONFIG_PACKAGE_kmod-tun=y                 # tun虚拟网卡内核模块，代理/隧道必备，启用
+CONFIG_PACKAGE_kmod-usb3=y                # usb3.0控制器内核模块，启用
+CONFIG_PACKAGE_kmod-usb-audio=n           # usb音频模块，禁用
+CONFIG_PACKAGE_kmod-usb-core=y            # usb子系统核心内核模块，启用
+CONFIG_PACKAGE_kmod-usb-dwc3=y            # dwc3 usb3控制器驱动，IPQ6000使用，启用
+CONFIG_PACKAGE_kmod-usb-ehci=n           # IPQ6000无EHCI USB2控制器，禁用ehci模块
+CONFIG_PACKAGE_kmod-usb-net=y            # usb网卡总驱动框架，启用
+CONFIG_PACKAGE_kmod-usb-net-asix=n        # asix usb网卡驱动，禁用
+CONFIG_PACKAGE_kmod-usb-net-asix-ax88179=n # ax88179 2.5G usb网卡驱动，禁用
+CONFIG_PACKAGE_kmod-usb-net-cdc-eem=n     # cdc eem usb网卡，禁用
+CONFIG_PACKAGE_kmod-usb-net-cdc-ether=n   # cdc ether usb网卡，禁用
+CONFIG_PACKAGE_kmod-usb-net-cdc-mbim=n    # mbim 4G/5G模块，禁用
+CONFIG_PACKAGE_kmod-usb-net-cdc-ncm=n     # ncm usb网卡，禁用
+CONFIG_PACKAGE_kmod-usb-net-cdc-subset=n  # cdc子集驱动，禁用
+CONFIG_PACKAGE_kmod-usb-net-huawei-cdc-ncm=n # 华为ncm上网卡，禁用
+CONFIG_PACKAGE_kmod-usb-net-ipheth=n      # 苹果iPhone USB网络ipheth驱动，不用苹果手机禁用
+CONFIG_PACKAGE_kmod-usb-net-rndis=y       # rndis手机USB共享网络驱动，启用
+CONFIG_PACKAGE_kmod-usb-net-rtl8150=y     # rtl8150 usb网卡，启用
+CONFIG_PACKAGE_kmod-usb-net-rtl8152=y     # rtl8152 2.5G USB网卡驱动，启用
+CONFIG_PACKAGE_kmod-usb-net-sierrawireless=n #  Sierra无线4G模块，禁用
+CONFIG_PACKAGE_kmod-usb-ohci=n            # IPQ6000无OHCI USB1控制器，禁用
+CONFIG_PACKAGE_kmod-usb-storage=y         # usb存储设备驱动，U盘/移动硬盘，启用
+CONFIG_PACKAGE_kmod-usb-storage-extras=y  # usb存储扩展驱动，启用
+CONFIG_PACKAGE_kmod-usb-storage-uas=y     # UAS高速USB存储，启用
+CONFIG_PACKAGE_kmod-usb-uhci=n           # IPQ6000无UHCI USB1控制器，禁用
+CONFIG_PACKAGE_kmod-veth=y               # veth虚拟成对网卡内核模块，docker必备，启用
+CONFIG_PACKAGE_kmod-wireguard=y          # wireguard隧道内核模块，启用
 
-#========== 隧道全部关闭（6RD/GRE/L2TP/PPTP）==========
-CONFIG_PACKAGE_6rd=n
-CONFIG_PACKAGE_kmod-qca-nss-drv-tun6rd=n
-CONFIG_PACKAGE_kmod-sit=n #【改】6rd/6to4配套内核模块，一并关闭
-CONFIG_PACKAGE_kmod-gre=n
-CONFIG_PACKAGE_kmod-gre6=n
-CONFIG_PACKAGE_kmod-qca-nss-drv-gre=n
-CONFIG_PACKAGE_kmod-l2tp=n
-CONFIG_PACKAGE_kmod-qca-nss-drv-l2tpv2=n
-CONFIG_PACKAGE_kmod-pptp=n
-CONFIG_PACKAGE_kmod-qca-nss-drv-pptp=n
+# 用户空间工具组件调整
+CONFIG_PACKAGE_autocore=y                 # autocore硬件信息采集，LuCI系统页必备，启用
+CONFIG_PACKAGE_automount=y                # automount自动挂载U盘/硬盘，启用
+CONFIG_PACKAGE_blkid=y                    # blkid块设备信息查询工具，启用
+CONFIG_PACKAGE_cfdisk=n                   # cfdisk磁盘分区工具，禁用
+CONFIG_PACKAGE_cgdisk=n                   # cgdisk gpt分区工具，禁用
+CONFIG_PACKAGE_coremark=n                 # coremark跑分工具，不内置，禁用
+CONFIG_PACKAGE_cpufreq=y                  # cpufreq处理器调频驱动，启用
+CONFIG_PACKAGE_curl=y                     # curl http/https命令行工具，启用
+CONFIG_PACKAGE_dmesg=y                    # dmesg内核日志工具，启用
+CONFIG_PACKAGE_exfat-fsck=y               # exfat文件系统检查工具，启用
+CONFIG_PACKAGE_exfat-mkfs=y               # exfat格式化工具，启用
+CONFIG_PACKAGE_fdisk=n                    # fdisk mbr分区工具，禁用
+CONFIG_PACKAGE_gdisk=n                    # gdisk gpt分区工具，禁用
+CONFIG_PACKAGE_htop=y                     # htop进程监控工具，启用
+CONFIG_PACKAGE_iperf3=y                   # iperf3网络测速工具，启用
+CONFIG_PACKAGE_ip-full=y                  # iproute2完整ip命令工具包，启用
+CONFIG_PACKAGE_libimobiledevice=n         # 苹果设备usb通信库，不用苹果手机禁用
+CONFIG_PACKAGE_libnvme=n                  # 【改】nvme用户态库，不接NVMe硬盘，禁用
+CONFIG_PACKAGE_lsblk=y                    # lsblk列出块设备工具，启用
+CONFIG_PACKAGE_luci-base=y                # luci基础核心包，启用
+CONFIG_PACKAGE_luci-compat=y              # luci兼容旧代码库，启用
+CONFIG_PACKAGE_luci-lib-base=y            # luci基础lua库，启用
+CONFIG_PACKAGE_luci-lib-ipkg=y            # luci ipkg包管理库，启用
+CONFIG_PACKAGE_luci-lua-runtime=y         # luci lua运行时，启用
+CONFIG_PACKAGE_luci-proto-relay=y         # luci relay桥接协议支持，启用
+CONFIG_PACKAGE_mmc-utils=y                # mmc/emmc存储工具，亚瑟板载EMMC，启用
+CONFIG_PACKAGE_nand-utils=n               # nand闪存工具，本设备EMMC，禁用
+CONFIG_PACKAGE_nvme-cli=n                 # 【改】nvme命令行工具，不接NVMe硬盘，禁用
+CONFIG_PACKAGE_openssh-keygen=y           # openssh密钥生成工具，启用
+CONFIG_PACKAGE_openssh-sftp-server=y       # openssh sftp文件服务，启用
+CONFIG_PACKAGE_openssl-util=y             # openssl命令行工具集，启用
+CONFIG_PACKAGE_proto-bonding=y            # bonding链路聚合协议支持，启用
+CONFIG_PACKAGE_sfdisk=n                   # sfdisk脚本化分区工具，禁用
+CONFIG_PACKAGE_sgdisk=n                   # sgdisk gpt脚本分区工具，禁用
+CONFIG_PACKAGE_smartmontools=y            # smartmontools硬盘健康检测工具，启用
+CONFIG_PACKAGE_smartmontools-drivedb=y    # smartmon硬盘数据库，启用
+CONFIG_PACKAGE_usb-modeswitch=y           # usb-modeswitch切换4G网卡模式，启用
+CONFIG_PACKAGE_usbmuxd=n                  # 苹果usb设备usbmuxd服务，不用苹果手机禁用
+CONFIG_PACKAGE_usbutils=y                 # usb设备查看工具lsusb等，启用
+CONFIG_PACKAGE_xz-utils=y                 # xz高压缩解压工具，启用
 
-#========== 无线全套彻底关闭（无WiFi固件）==========
-CONFIG_PACKAGE_hostapd-common=n
-CONFIG_PACKAGE_wpad-openssl=n
-CONFIG_PACKAGE_wifi-scripts=n #【改】无线管理脚本
-CONFIG_PACKAGE_iw=n #【改】无线工具
-CONFIG_PACKAGE_wireless-regdb=n #【改】无线法规数据库
+# ========== 隧道协议全部关闭（6RD/GRE/L2TP/PPTP）==========
+CONFIG_PACKAGE_6rd=n                      # 6rd ipv6隧道，禁用
+CONFIG_PACKAGE_kmod-sit=n                 # 【改】sit 6to4配套内核模块，一并关闭禁用
+CONFIG_PACKAGE_kmod-gre=n                 # gre隧道内核模块，禁用
+CONFIG_PACKAGE_kmod-gre6=n                # gre6 ipv6 gre隧道内核模块，禁用
+CONFIG_PACKAGE_kmod-l2tp=n                # l2tp隧道内核模块，禁用
+CONFIG_PACKAGE_kmod-pptp=n                # pptp隧道内核模块，禁用
 
-#========== NSS内核参数已按你的要求从 .config 删除，由 PRIVATE.sh 在 defconfig 后写入 ==========
+# ========== 无线全套彻底关闭（无WiFi固件，IPQ6000不启用射频）==========
+CONFIG_PACKAGE_hostapd-common=n           # hostapd无线AP基础组件，禁用
+CONFIG_PACKAGE_wpad-openssl=n             # wpad认证守护进程（wifi），禁用
+CONFIG_PACKAGE_wifi-scripts=n             # 【改】wifi无线管理脚本，禁用
+CONFIG_PACKAGE_iw=n                       # 【改】iw无线调试工具，禁用
+CONFIG_PACKAGE_wireless-regdb=n           # 【改】无线国家法规数据库，禁用
