@@ -36,9 +36,37 @@ CONFIG_PACKAGE_luci-app-natmapt=n        # natmapt端口映射插件，禁用
 CONFIG_PACKAGE_stuntman-client=n         # stuntman客户端，禁用
 CONFIG_PACKAGE_luci-app-partexp=n        # partexp分区扩展插件，禁用
 CONFIG_PACKAGE_luci-app-samba4=n         # samba4网络共享插件，禁用
-
-
-
+CONFIG_PACKAGE_kmod-nvme=n                # 【改】nvme硬盘内核模块，不接NVMe硬盘，禁用
+CONFIG_PACKAGE_kmod-ovpn-backports=n      # openvpn回移植内核模块；无OpenVPN需求可改n，禁用
+CONFIG_PACKAGE_kmod-sound-core=n          # 声卡核心模块，无音频设备禁用
+CONFIG_PACKAGE_kmod-usb-audio=n           # usb音频模块，禁用
+CONFIG_PACKAGE_kmod-usb-ehci=n           # IPQ6000无EHCI USB2控制器，禁用ehci模块
+CONFIG_PACKAGE_kmod-usb-net-asix=n        # asix usb网卡驱动，禁用
+CONFIG_PACKAGE_kmod-usb-net-cdc-eem=n     # cdc eem usb网卡，禁用
+CONFIG_PACKAGE_kmod-usb-net-cdc-ether=n   # cdc ether usb网卡，禁用
+CONFIG_PACKAGE_kmod-usb-net-cdc-mbim=n    # mbim 4G/5G模块，禁用
+CONFIG_PACKAGE_kmod-usb-net-cdc-ncm=n     # ncm usb网卡，禁用
+CONFIG_PACKAGE_kmod-usb-net-cdc-subset=n  # cdc子集驱动，禁用
+CONFIG_PACKAGE_kmod-usb-net-huawei-cdc-ncm=n # 华为ncm上网卡，禁用
+CONFIG_PACKAGE_kmod-usb-net-ipheth=n      # 苹果iPhone USB网络ipheth驱动，不用苹果手机禁用
+CONFIG_PACKAGE_kmod-usb-net-sierrawireless=n #  Sierra无线4G模块，禁用
+CONFIG_PACKAGE_kmod-usb-ohci=n            # IPQ6000无OHCI USB1控制器，禁用
+CONFIG_PACKAGE_kmod-usb-uhci=n           # IPQ6000无UHCI USB1控制器，禁用
+CONFIG_PACKAGE_coremark=n                 # coremark跑分工具，不内置，禁用
+CONFIG_PACKAGE_cfdisk=n                   # cfdisk磁盘分区工具，禁用
+CONFIG_PACKAGE_cgdisk=n                   # cgdisk gpt分区工具，禁用
+CONFIG_PACKAGE_fdisk=n                    # fdisk mbr分区工具，禁用
+CONFIG_PACKAGE_gdisk=n                    # gdisk gpt分区工具，禁用
+CONFIG_PACKAGE_sfdisk=n                   # sfdisk脚本化分区工具，禁用
+CONFIG_PACKAGE_sgdisk=n                   # sgdisk gpt脚本分区工具，禁用
+CONFIG_PACKAGE_libnvme=n                  # 【改】nvme用户态库，不接NVMe硬盘，禁用
+CONFIG_PACKAGE_nand-utils=n               # nand闪存工具，本设备EMMC，禁用
+CONFIG_PACKAGE_nvme-cli=n                 # 【改】nvme命令行工具，不接NVMe硬盘，禁用
+CONFIG_PACKAGE_hostapd-common=n           # hostapd无线AP基础组件，禁用
+CONFIG_PACKAGE_wpad-openssl=n             # wpad认证守护进程（wifi），禁用
+CONFIG_PACKAGE_wifi-scripts=n             # 【改】wifi无线管理脚本，禁用
+CONFIG_PACKAGE_iw=n                       # 【改】iw无线调试工具，禁用
+CONFIG_PACKAGE_wireless-regdb=n           # 【改】无线国家法规数据库，禁用
 
 
 
