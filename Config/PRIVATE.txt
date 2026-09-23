@@ -1,0 +1,51 @@
+# 设备：亚瑟 RE-CS-01 / IPQ6000 无WiFi主路由 
+
+CONFIG_PACKAGE_luci-app-diskman=n        # diskman磁盘管理插件，显式禁用
+CONFIG_PACKAGE_luci-app-mosdns=n         # mosdns DNS解析插件，禁用
+CONFIG_PACKAGE_luci-app-rtp2httpd=n      # rtp2httpd流媒体转发插件，禁用
+CONFIG_PACKAGE_luci-app-tailscale=n      # 保留tailscale异地组网插件，禁用
+CONFIG_PACKAGE_luci-app-oaf=y            # oaf应用过滤插件，启用
+CONFIG_PACKAGE_luci-app-dockerman=y      # Dockerman docker管理LuCI面板，启用
+CONFIG_PACKAGE_luci-app-advancedplus=y   # advancedplus高级设置增强插件，启用
+CONFIG_PACKAGE_luci-app-lucky=y          # lucky网络工具插件，启用
+CONFIG_PACKAGE_luci-app-quickfile=y     # quickfile快速文件管理插件，启用
+CONFIG_PACKAGE_luci-app-ramfree=y        # ramfree内存释放插件，启用
+CONFIG_PACKAGE_luci-app-ttyd=y           # ttyd网页终端插件，启用
+CONFIG_PACKAGE_luci-app-vlmcsd=y         # vlmcsd KMS激活服务插件，启用
+#CONFIG_PACKAGE_luci-app-pushbot=y       # pushbot推送通知插件，注释不编译
+CONFIG_PACKAGE_luci-app-wechatpush=y     # wechatpush微信推送插件，启用
+CONFIG_PACKAGE_luci-app-wrtbwmon=y       # wrtbwmon带宽流量监控插件，启用
+CONFIG_PACKAGE_luci-app-easytier=y       # 保留easytier异地组网插件，启用
+CONFIG_PACKAGE_luci-app-zerotier=y       # 保留zerotier异地组网插件，启用
+CONFIG_PACKAGE_luci-theme-argon=y        # Argon LuCI网页主题，启用
+CONFIG_PACKAGE_jq=y                      # jq json命令行解析工具，启用
+CONFIG_PACKAGE_yq=y                      # yq yaml命令行解析工具，启用
+CONFIG_PACKAGE_lftp=y                    # lftp ftp/sftp客户端工具，启用
+
+# 包参数调整
+CONFIG_USE_APK=n                         # APK包管理器，禁用，使用opkg
+CONFIG_TARGET_KERNEL_PARTSIZE=512        # 内核分区大小512MB，PER_DEVICE编译模式请核对设备符号
+CONFIG_TARGET_ROOTFS_PARTSIZE=2048       # 根文件系统分区大小2048MB，同上
+CONFIG_TARGET_ROOTFS_EXT4FS=n            # 不构建ext4根文件系统镜像，禁用
+
+# 禁用
+CONFIG_PACKAGE_fullconenat-sonic=n       # fullconenat-sonic旧版fullcone插件，禁用
+CONFIG_PACKAGE_luci-app-fullconenat-sonic=n  # fullconenat-sonic对应luci面板，禁用
+CONFIG_PACKAGE_kmod-nft-fullcone=y       # 【改】nftables版fullcone内核模块（原固件自带；不需要可删）
+CONFIG_PACKAGE_luci-app-natmapt=n        # natmapt端口映射插件，禁用
+CONFIG_PACKAGE_stuntman-client=n         # stuntman客户端，禁用
+CONFIG_PACKAGE_luci-app-partexp=n        # partexp分区扩展插件，禁用
+CONFIG_PACKAGE_luci-app-samba4=n         # samba4网络共享插件，禁用
+
+
+
+
+
+
+
+
+
+
+
+
+
