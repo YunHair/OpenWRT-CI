@@ -90,7 +90,7 @@ UPDATE_PACKAGE "mt5700m" "LianXia233/luci-app-mt5700m" "main"
 UPDATE_PACKAGE "netmonitor" "LianXia233/luci-app-netmonitor" "main"
 UPDATE_PACKAGE "qmodem-generic" "LianXia233/luci-app-qmodem-generic" "main"
 
-UPDATE_PACKAGE "YunHair" "YunHair/openwrt-package" "main" "" "axonhub gecoosac  luci-app-wolultra luci-app-advancedplus  luci-app-gecoosac luci-app-lucky luci-app-oaf oaf open-app-filter"
+UPDATE_PACKAGE "YunHair" "YunHair/openwrt-package" "main" "" "axonhub gecoosac  luci-app-wolultra luci-app-advancedplus luci-app-wrtbwmon luci-app-gecoosac luci-app-lucky luci-app-oaf oaf open-app-filter"
 
 #更新软件包版本
 UPDATE_VERSION() {
