@@ -39,3 +39,14 @@ FIX "mini-diskmanager" "$PACKAGE_PATH/luci-app-mini-diskmanager" sed -i "s/servi
 #修改natmapt菜单位置
 FIX "natmapt" "$PACKAGE_PATH/luci-app-natmapt" sed -i "s/network/services/g" \
 	"$PACKAGE_PATH/luci-app-natmapt/root/usr/share/luci/menu.d/luci-app-natmap.json"
+
+#gecoosac 去重：VIKINGYFY/packages 与 openwrt-package 各带一份同名包，
+#统一使用 openwrt-package 版本（release 号更新，且 gecoosac 提供 gecoosac-files/gecoosac-common）。
+#否则同名包按扫描顺序取其一，会出现这次编 viking 版、下次编自建版的随机结果。
+if [ -d "$PACKAGE_PATH/openwrt-package/gecoosac" ]; then
+	for NAME in gecoosac luci-app-gecoosac; do
+		[ -d "$PACKAGE_PATH/packages/$NAME" ] || continue
+		rm -rf "$PACKAGE_PATH/packages/$NAME"
+		echo "Remove duplicate package: $PACKAGE_PATH/packages/$NAME (use openwrt-package copy)"
+	done
+fi
