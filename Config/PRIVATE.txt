@@ -37,7 +37,8 @@ CONFIG_PACKAGE_luci-app-fullconenat-sonic=n      #【关闭】sonic fullcone管�
 CONFIG_PACKAGE_kmod-nft-fullcone=y               #【改】nftables版fullcone（原固件含；不需要可删）
 
 #科学插件
-CONFIG_PACKAGE_luci-app-homeproxy=y
+CONFIG_PACKAGE_luci-app-homeproxy=n
+CONFIG_PACKAGE_luci-app-homeproxy-pro=y
 
 #增加插件
 CONFIG_PACKAGE_luci-app-autoreboot=y
