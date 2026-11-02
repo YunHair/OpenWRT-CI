@@ -69,7 +69,7 @@ UPDATE_PACKAGE "passwall2" "Openwrt-Passwall/openwrt-passwall2" "main" "pkg"
 UPDATE_PACKAGE "diskmanager" "4IceG/luci-app-mini-diskmanager" "main"
 UPDATE_PACKAGE "easytier" "EasyTier/luci-app-easytier" "main"
 UPDATE_PACKAGE "qmodem" "FUjr/QModem" "main"
-UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "axonhub gecoosac luci-app-gecoosac miniupnpd sing-box luci-app-homeproxy luci-app-timewol luci-app-upnp luci-app-wolplus luci-app-wolultra"
+UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "axonhub gecoosac luci-app-gecoosac miniupnpd  luci-app-timewol luci-app-upnp luci-app-wolplus luci-app-wolultra"
 # UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 # 上游 lmq8267/luci-app-vnt 已 404（2026-10 确认），仓库消失，先停用；恢复可用地址后再解开
 
