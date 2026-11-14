@@ -41,19 +41,18 @@ CONFIG_PACKAGE_luci-app-fullconenat-sonic=n      #【关闭】sonic fullcone管�
 CONFIG_PACKAGE_kmod-nft-fullcone=y               #【改】nftables版fullcone（原固件含；不需要可删）
 
 #科学插件
-CONFIG_PACKAGE_luci-app-homeproxy=y
-CONFIG_PACKAGE_luci-app-homeproxy-pro=n
 
 #增加插件
 CONFIG_PACKAGE_luci-app-autoreboot=y
-CONFIG_PACKAGE_luci-app-gecoosac=y
 CONFIG_PACKAGE_luci-app-mini-diskmanager=y
+CONFIG_PACKAGE_luci-app-upnp=y
+CONFIG_PACKAGE_luci-app-wolplus=y
+CONFIG_PACKAGE_luci-app-gecoosac=n
+CONFIG_PACKAGE_luci-app-homeproxy=n
 CONFIG_PACKAGE_luci-app-natmapt=n                #【关闭】不编译natmapt
 CONFIG_PACKAGE_stuntman-client=n                 #【关闭】不编译stun客户端
 CONFIG_PACKAGE_luci-app-partexp=n                #【关闭】不编译分区扩展工具
 CONFIG_PACKAGE_luci-app-samba4=n                 #【关闭】不编译samba4文件共享
-CONFIG_PACKAGE_luci-app-upnp=y
-CONFIG_PACKAGE_luci-app-wolultra=y
 
 #删除插件
 CONFIG_PACKAGE_luci-app-attendedsysupgrade=n     #【关闭】关闭在线升级
