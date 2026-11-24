@@ -33,6 +33,8 @@ CONFIG_PACKAGE_luci-theme-argon=y
 CONFIG_PACKAGE_luci-theme-aurora=y
 CONFIG_PACKAGE_luci-app-aurora-config=y
 
+CONFIG_PACKAGE_luci-app-vantage=n
+CONFIG_PACKAGE_luci-theme-vantage=n
 CONFIG_PACKAGE_luci-app-homeproxy=n
 CONFIG_PACKAGE_luci-app-wrtbwmon=n
 CONFIG_PACKAGE_wrtbwmon=n                      #【保险】显式关闭 wrtbwmon 底层包，确保不引入 iptables 依赖
